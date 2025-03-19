@@ -23,7 +23,7 @@ export async function POST(request){
 const imageBuffer = Buffer.from(imageByteData);
 const path = `./public/${timestamp}_${image.name}`;
 await writeFile(path,imageBuffer);
-const imgUrl=`/${timestamp}_${image.name}`;
+const imgUrl=`/${timestamp}_${image.name}`;   
 
 const blogData={
     title:`${formData.get('title')}`,
@@ -35,7 +35,7 @@ const blogData={
     
 }
 await BlogModel.create(blogData);
-console.log("Blog Saved")
+console.log("Blog Saved")  
 
 return NextResponse.json({success:true, msg : "Blog Added"})
 }
